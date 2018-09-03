@@ -44,10 +44,13 @@ $.fn.tab.closeCurrent()
 
 ```Javascript
 $.fn.tab.addTab({
-    containerId: 'container-id',    //容器Id，默认为"body"
-    tabId: 'new-tab-id',            //自定义tabId
-    tabName: '新页面',               //自定义tab名称
-    url: '/page2.html',
-    closable: false                 //是否显示"关闭"按钮
+    containerId: 'container-id',            //容器Id，默认为"body"
+    tabId: 'new-tab-id',                    //自定义tabId
+    tabName: '新页面',                       //自定义tab名称
+    url: '/page2.html',                     //tab页面加载地址
+    closable: false,                        //是否显示"关闭"按钮
+    callback: function(tabId, paneId, $pane){
+        $pane.find('.name').text('默认')     //加载完毕的回调函数，用于初始化页面
+    }
 })
 ```
