@@ -99,7 +99,9 @@ function ($) {
 
             if ($pane.hasClass('active') && $pane.hasClass('fade') && $.support.transition) {
                 if (hasSibling) {
-                    $pane.one('bsTransitionEnd', $pane.remove)
+                    $pane.one('bsTransitionEnd', function() {
+                        $pane.remove()
+                    })
                 } else {
                     $pane
                         .one('bsTransitionEnd', $pane.remove)
